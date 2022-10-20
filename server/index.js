@@ -4,9 +4,10 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
 const authRoute = require("./routes/auth");
-const courseRoute = require("./routes/course");
+const collectionRoute = require("./routes/collection");
 const passport = require("passport");
 require("./config/passport")(passport);
+const cors = require("cors");
 
 //Connect MongoDb Atlas
 mongoose
@@ -22,11 +23,12 @@ mongoose
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 app.use("/api/user", authRoute);
 app.use(
-  "/api/courses",
+  "/api/collections",
   passport.authenticate("jwt", { session: false }),
-  courseRoute
+  collectionRoute
 );
 
 app.listen(8080, () => {

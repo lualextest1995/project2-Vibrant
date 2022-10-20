@@ -20,29 +20,11 @@ const userSchema = new mongoose.Schema({
     minLength: 6,
     maxLength: 1024,
   },
-  role: {
-    type: String,
-    enum: ["student", "instructor"],
-    required: true,
-  },
   date: {
     type: Date,
     default: Date.now,
   },
 });
-
-//確認身份的fuction
-userSchema.methods.isStudent = function () {
-  return this.role == "student";
-};
-
-userSchema.methods.isIntructor = function () {
-  return this.role == "instructor";
-};
-
-userSchema.methods.isAdmin = function () {
-  return this.role == "admin";
-};
 
 //確認輸入密碼與加密後密碼是否與資料庫一致的function
 userSchema.methods.comparePassword = function (password, cb) {
