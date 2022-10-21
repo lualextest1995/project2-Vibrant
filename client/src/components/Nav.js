@@ -53,9 +53,9 @@ const Nav = ({ currentUser, setCurrentUser }) => {
         )}
         {currentUser && (
           <li>
-            <Link onClick={logout} to="/">
+            <a onClick={logout} href="/">
               <i className="fa-solid fa-person-walking-arrow-right"></i> 登出
-            </Link>
+            </a>
           </li>
         )}
       </ul>

@@ -23,11 +23,11 @@ const loginValidation = (data) => {
 //收集是否合乎資料庫規格
 const collectionValidation = (data) => {
   const schema = Joi.object({
-    id: Joi.string().required(),
+    id: Joi.number().required(),
     photographer: Joi.string().required(),
     photographer_url: Joi.string().required(),
     src: Joi.string().required(),
-    alt: Joi.string(),
+    alt: Joi.string().allow(""),
     original: Joi.string().required(),
   });
   return schema.validate(data);
