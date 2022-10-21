@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthService from "../services/auth.service";
 
@@ -21,6 +21,12 @@ const Login = ({ currentUser, setCurrentUser }) => {
         setMessage(error.response.data);
       });
   }
+
+  useEffect(() => {
+    if (AuthService.getCurrentUser() !== null) {
+      navigate("/collection");
+    }
+  });
 
   return (
     <div className="login">
