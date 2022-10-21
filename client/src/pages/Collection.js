@@ -1,6 +1,6 @@
 import React from "react";
 
-const Collection = () => {
+const Collection = ({ currentUser, setCurrentUser }) => {
   return <div>Collection</div>;
 };
 

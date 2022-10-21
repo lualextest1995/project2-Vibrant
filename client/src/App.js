@@ -1,22 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import Collection from "./pages/Collection";
-import Signup from "./pages/Signup";
+import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Footer from "./components/Footer";
+import Error404 from "./pages/Error404";
 import { Routes, Route } from "react-router-dom";
 import "./styles/style.css";
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(null);
   return (
     <div className="App">
-      <Nav />
+      <Nav currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/collection" element={<Collection />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/collection"
+          element={
+            <Collection
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+            />
+          }
+        />
+        <Route path="/register" element={<Register />} />
+        <Route
+          path="/login"
+          element={
+            <Login currentUser={currentUser} setCurrentUser={setCurrentUser} />
+          }
+        />
+        <Route path="/*" element={<Error404 />} />
       </Routes>
       <Footer />
     </div>

@@ -12,7 +12,7 @@ const Picture = ({ data }) => {
           href={data.src.original}
           title="點擊前往原始圖片位置"
         >
-          <img src={data.src.large} alt="" />
+          <img src={data.src.large} alt="" loading="lazy" />
         </a>
       </div>
       <p>
