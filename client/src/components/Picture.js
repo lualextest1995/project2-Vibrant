@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import CollectionService from "../services/collection.service";
-import AuthService from "../services/auth.service";
 import Swal from "sweetalert2";
 
-const Picture = ({ data }) => {
+const Picture = ({ data, currentUser, setCurrentUser }) => {
   const [color, setColor] = useState({ color: "" });
 
   function postCollection() {
@@ -20,7 +19,8 @@ const Picture = ({ data }) => {
         .then(() => {
           setColor({ color: "red" });
         })
-        .catch(() => {
+        .catch((error) => {
+          console.log(error);
           Swal.fire({
             title: "錯誤!!",
             text: "要加入收藏，請先登入帳號",
@@ -41,24 +41,30 @@ const Picture = ({ data }) => {
   }
 
   //已收藏的顯示紅色愛心
-  function check() {
-    if (AuthService.getCurrentUser() !== null) {
-      CollectionService.get()
+  function check(id) {
+    if (currentUser) {
+      CollectionService.get(id)
         .then((response) => {
-          response.data.forEach((d) => {
+          response.data.map((d) => {
             if (d.id === data.id) {
               setColor({ color: "red" });
             }
           });
         })
         .catch((error) => {
-          window.alert(error.response.data);
+          console.log(error.response.data);
         });
     }
   }
 
   useEffect(() => {
-    check();
+    let _id;
+    if (currentUser) {
+      _id = currentUser.user._id;
+    } else {
+      _id = "";
+    }
+    check(_id);
   }, []);
 
   return (

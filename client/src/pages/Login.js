@@ -23,7 +23,7 @@ const Login = ({ currentUser, setCurrentUser }) => {
   }
 
   useEffect(() => {
-    if (AuthService.getCurrentUser() !== null) {
+    if (currentUser) {
       navigate("/collection");
     }
   });

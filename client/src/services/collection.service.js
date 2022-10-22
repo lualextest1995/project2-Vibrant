@@ -29,14 +29,14 @@ class CollectionService {
   }
 
   //讀取我的收藏
-  get() {
+  get(_id) {
     let token;
     if (localStorage.getItem("user")) {
       token = JSON.parse(localStorage.getItem("user")).token;
     } else {
       token = "";
     }
-    return axios.get(API_URL, {
+    return axios.get(API_URL + "/" + _id, {
       headers: {
         Authorization: token,
       },

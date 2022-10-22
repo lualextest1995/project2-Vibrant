@@ -20,9 +20,30 @@ function App() {
     <div className="App">
       <Nav currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/collection" element={<Collection />} />
-        <Route path="/register" element={<Register />} />
+        <Route
+          path="/"
+          element={
+            <Home currentUser={currentUser} setCurrentUser={setCurrentUser} />
+          }
+        />
+        <Route
+          path="/collection"
+          element={
+            <Collection
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+            />
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <Register
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+            />
+          }
+        />
         <Route
           path="/login"
           element={

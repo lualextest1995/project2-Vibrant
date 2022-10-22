@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Picture from "../components/Picture";
 import Search from "../components/Search";
 
-const Home = () => {
+const Home = ({ currentUser, setCurrentUser }) => {
   const [data, setData] = useState(null);
   const [page, setPage] = useState(1);
   const [input, setInput] = useState("");
@@ -28,7 +28,7 @@ const Home = () => {
 
   async function loadingHandler() {
     let url;
-    if (currentSearch === "") {
+    if (!currentSearch) {
       url = loadingURL;
     } else {
       url = searchLoadingURL;
@@ -49,13 +49,9 @@ const Home = () => {
     });
   }
 
-  useEffect(() => {
-    getData(initialURL);
-  }, []);
-
   //當搜尋欄狀態改變時自動取得資料
   useEffect(() => {
-    if (currentSearch === "") {
+    if (!currentSearch) {
       getData(initialURL);
     } else {
       getData(searchURL);
@@ -63,7 +59,7 @@ const Home = () => {
   }, [currentSearch]);
 
   return (
-    <div>
+    <div className="home">
       <Search
         setInput={setInput}
         search={() => {
@@ -74,7 +70,14 @@ const Home = () => {
       <div className="pictures">
         {data &&
           data.map((pic) => {
-            return <Picture data={pic} key={pic.id} />;
+            return (
+              <Picture
+                data={pic}
+                key={pic.id}
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+              />
+            );
           })}
       </div>
       <div className="loading">

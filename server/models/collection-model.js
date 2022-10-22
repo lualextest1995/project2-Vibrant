@@ -7,6 +7,7 @@ const collectionSchema = new mongoose.Schema({
   src: { type: String, required: true },
   alt: { type: String },
   original: { type: String, required: true },
+  author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
 });
 
 const Collection = mongoose.model("Collection", collectionSchema);

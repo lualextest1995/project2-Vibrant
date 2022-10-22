@@ -9,6 +9,13 @@ a {
   text-decoration: none;
 }
 
+.App {
+  position: relative;
+}
+.App .home {
+  min-height: 83vh;
+}
+
 .loading {
   text-align: center;
   margin: 1rem 0;
@@ -28,9 +35,15 @@ a {
 }
 
 nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  width: 100%;
   background-color: #3a3a3a;
   display: flex;
   align-items: center;
+  box-shadow: 0 4px 4px -4px;
 }
 nav .logo {
   height: 80px;
@@ -124,7 +137,7 @@ footer p {
   position: absolute;
   top: 0;
   left: 10px;
-  z-index: 5;
+  z-index: 4;
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -147,14 +160,19 @@ footer p {
 }
 
 .search {
+  position: fixed;
+  top: 5px;
+  left: 50%;
+  translate: -50%;
+  z-index: 6;
   margin: 1rem 0;
-  width: 100%;
+  width: 25%;
   display: flex;
   justify-content: center;
 }
 .search .searchContainer {
   background-color: aquamarine;
-  width: 25%;
+  width: 100%;
   height: 40px;
   display: flex;
   justify-content: center;
@@ -162,11 +180,27 @@ footer p {
   border-radius: 10px;
 }
 .search .searchContainer input {
+  font-size: 1.2rem;
   width: 400px;
   height: 30px;
   border: none;
   outline: none;
   background-color: aquamarine;
+}
+.search .searchContainer input::-moz-placeholder {
+  text-align: center;
+  font-size: 1.2rem;
+  color: black;
+}
+.search .searchContainer input:-ms-input-placeholder {
+  text-align: center;
+  font-size: 1.2rem;
+  color: black;
+}
+.search .searchContainer input::placeholder {
+  text-align: center;
+  font-size: 1.2rem;
+  color: black;
 }
 .search .searchContainer button {
   width: 30px;
@@ -178,10 +212,10 @@ footer p {
 
 .login {
   width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 83vh;
 }
 .login .loginContainer {
   background-color: rgba(128, 128, 128, 0.3);
@@ -268,7 +302,7 @@ footer p {
 
 .register {
   width: 100%;
-  height: 100vh;
+  min-height: 83vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -368,6 +402,7 @@ footer p {
 }
 
 .collectionPictures {
+  min-height: 83vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -403,7 +438,7 @@ footer p {
   position: absolute;
   top: 0;
   left: 10px;
-  z-index: 5;
+  z-index: 4;
   font-size: 1.5rem;
   cursor: pointer;
 }

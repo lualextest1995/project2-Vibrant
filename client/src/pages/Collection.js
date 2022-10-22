@@ -1,31 +1,38 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import AuthService from "../services/auth.service";
 import CollectionService from "../services/collection.service";
 import CollectionPicture from "../components/CollectionPicture";
 
-const Collection = () => {
+const Collection = ({ currentUser, setCurrentUser }) => {
   const navigate = useNavigate();
   const [collectionData, setCollectionData] = useState(null);
 
   function getCollectionData() {
-    CollectionService.get()
+    let _id;
+    if (currentUser) {
+      _id = currentUser.user._id;
+    } else {
+      _id = "";
+    }
+    CollectionService.get(_id)
       .then((data) => {
         setCollectionData(data.data);
       })
       .catch((error) => {
-        console.log(error.response.data);
+        console.log(error);
       });
   }
 
   useEffect(() => {
-    if (AuthService.getCurrentUser() === null) {
+    if (!currentUser) {
       navigate("/login");
     }
   }, []);
+
   useEffect(() => {
     getCollectionData();
   }, []);
+
   return (
     <div>
       <div className="collectionPictures">

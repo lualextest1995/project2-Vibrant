@@ -7,6 +7,12 @@
 a {
   text-decoration: none;
 }
+.App {
+  position: relative;
+  .home {
+    min-height: 83vh;
+  }
+}
 
 .loading {
   text-align: center;

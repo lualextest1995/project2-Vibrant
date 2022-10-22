@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthService from "../services/auth.service";
 
-const Register = () => {
+const Register = ({ currentUser, setCurrentUser }) => {
   const usenameRef = useRef("");
   const emailRef = useRef("");
   const passwordRef = useRef("");
@@ -24,7 +24,7 @@ const Register = () => {
   }
 
   useEffect(() => {
-    if (AuthService.getCurrentUser() !== null) {
+    if (currentUser) {
       navigate("/collection");
     }
   });

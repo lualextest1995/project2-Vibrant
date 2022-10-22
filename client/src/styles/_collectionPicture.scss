@@ -1,4 +1,5 @@
 .collectionPictures {
+  min-height: 83vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -31,7 +32,7 @@
         position: absolute;
         top: 0;
         left: 10px;
-        z-index: 5;
+        z-index: 4;
         font-size: 1.5rem;
         cursor: pointer;
         i {

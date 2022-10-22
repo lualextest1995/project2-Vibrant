@@ -23,9 +23,6 @@ router.post("/", async (req, res) => {
   if (error) return res.status(400).send(error.details[0].message);
 
   let { id, photographer, photographer_url, src, alt, original } = req.body;
-  //檢查是否有收藏過
-  const IDExist = await Collection.findOne({ id });
-  if (IDExist) return res.status(400).send("此照片已經在我的收藏中.");
 
   let newCollection = new Collection({
     id,
@@ -34,6 +31,7 @@ router.post("/", async (req, res) => {
     src,
     alt,
     original,
+    author: req.user._id,
   });
 
   try {
@@ -45,8 +43,9 @@ router.post("/", async (req, res) => {
 });
 
 //讀取我的收藏(read)
-router.get("/", (req, res) => {
-  Collection.find({})
+router.get("/:_id", (req, res) => {
+  let { _id } = req.params;
+  Collection.find({ author: _id })
     .then((collection) => {
       res.send(collection);
     })
