@@ -365,4 +365,58 @@ footer p {
 .register .registerContainer .message {
   text-align: center;
   font-size: 1.75rem;
+}
+
+.collectionPictures {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.collectionPictures .collectionPicture {
+  margin: 1rem;
+  width: 340px;
+}
+.collectionPictures .collectionPicture p {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+  color: black;
+}
+.collectionPictures .collectionPicture p i {
+  color: #316eae;
+}
+.collectionPictures .collectionPicture p a {
+  color: #8f9962;
+  transition: all 0.3s ease;
+}
+.collectionPictures .collectionPicture p a:hover {
+  color: #6ae268;
+}
+.collectionPictures .collectionPicture .collectionContainer {
+  width: 340px;
+  height: 340px;
+  overflow: hidden;
+  border-radius: 15px;
+  position: relative;
+}
+.collectionPictures .collectionPicture .collectionContainer .love {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  z-index: 5;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.collectionPictures .collectionPicture .collectionContainer .love i {
+  color: red;
+}
+.collectionPictures .collectionPicture .collectionContainer a img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.3s ease;
+}
+.collectionPictures .collectionPicture .collectionContainer a img:hover {
+  transform: scale(1.3);
 }/*# sourceMappingURL=style.css.map */

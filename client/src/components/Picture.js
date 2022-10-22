@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import CollectionService from "../services/collection.service";
 import AuthService from "../services/auth.service";
+import Swal from "sweetalert2";
 
 const Picture = ({ data }) => {
   const [color, setColor] = useState({ color: "" });
 
   function postCollection() {
-    if (color.color == "") {
+    if (color.color === "") {
       //新增
       CollectionService.post(
         data.id,
@@ -19,9 +20,13 @@ const Picture = ({ data }) => {
         .then(() => {
           setColor({ color: "red" });
         })
-        .catch((error) => {
-          //console.log(error.response.data);
-          window.alert("要加入收藏，請先登入帳號");
+        .catch(() => {
+          Swal.fire({
+            title: "錯誤!!",
+            text: "要加入收藏，請先登入帳號",
+            icon: "warning",
+            confirmButtonText: "OK",
+          });
         });
     } else {
       //刪除
@@ -37,13 +42,11 @@ const Picture = ({ data }) => {
 
   //已收藏的顯示紅色愛心
   function check() {
-    if (AuthService.getCurrentUser() === null) {
-      return;
-    } else {
+    if (AuthService.getCurrentUser() !== null) {
       CollectionService.get()
         .then((response) => {
-          response.data.map((d) => {
-            if (d.id == data.id) {
+          response.data.forEach((d) => {
+            if (d.id === data.id) {
               setColor({ color: "red" });
             }
           });
@@ -68,6 +71,7 @@ const Picture = ({ data }) => {
           target="_blank"
           href={data.src.original}
           title="點擊前往原始圖片位置"
+          rel="noreferrer noopener"
         >
           <img src={data.src.large} alt="" loading="lazy" />
         </a>
@@ -78,6 +82,7 @@ const Picture = ({ data }) => {
           target="_blank"
           href={data.photographer_url}
           title="前往作者的創作區"
+          rel="noreferrer noopener"
         >
           {data.photographer}
         </a>

@@ -21,15 +21,7 @@ function App() {
       <Nav currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route
-          path="/collection"
-          element={
-            <Collection
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
-            />
-          }
-        />
+        <Route path="/collection" element={<Collection />} />
         <Route path="/register" element={<Register />} />
         <Route
           path="/login"
