@@ -66,6 +66,11 @@ const Home = ({ currentUser, setCurrentUser }) => {
           //input的資料由setCurrentSearch保存
           setCurrentSearch(input);
         }}
+        searchKeyboard={(e) => {
+          if (e.code == "Enter") {
+            setCurrentSearch(input);
+          }
+        }}
       />
       <div className="pictures">
         {data &&

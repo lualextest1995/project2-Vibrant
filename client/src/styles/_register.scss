@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   .registerContainer {
-    background-color: rgba(128, 128, 128, 0.3);
+    background-color: #5b5b5b;
     width: 480px;
     height: 580px;
     border-radius: 15px;
@@ -25,11 +25,10 @@
         margin: 2rem 0;
         a {
           font-size: 2.8rem;
-          color: gray;
+          color: #c4e1ff;
           text-decoration: none;
-          font-family: "Abril Fatface", cursive;
           &:hover {
-            color: aqua;
+            color: #66b3ff;
           }
         }
       }
@@ -58,35 +57,57 @@
         }
       }
       p {
-        color: gray;
-        font-size: 0.8rem;
+        color: #ff8040;
+        font-size: 1rem;
       }
       button {
         margin: 1rem 0;
         padding: 0.25rem 2rem;
         border-radius: 12px;
         border: none;
-        background-color: rgba(95, 158, 160, 0.5);
+        background-color: #00caca;
         color: white;
         font-size: 2rem;
         cursor: pointer;
         transition: all 0.2s ease;
         &:hover {
-          background-color: rgba(95, 158, 160, 1);
+          background-color: #00ffff;
+          color: black;
         }
       }
     }
     p {
       margin-bottom: 0.5rem;
+      font-size: 1.3rem;
       color: white;
       a {
         text-decoration: none;
-        color: red;
+        color: white;
+        transition: all 0.3s ease;
+        &:hover {
+          color: #ff0000;
+        }
       }
     }
     .message {
       text-align: center;
-      font-size: 1.75rem;
+      p {
+        font-size: 2rem;
+        color: #ff0000;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .register {
+    background-color: #5b5b5b;
+    .registerContainer {
+      .registerbox {
+        .inputbox {
+          width: 100%;
+        }
+      }
     }
   }
 }

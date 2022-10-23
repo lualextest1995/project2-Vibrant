@@ -9,8 +9,13 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
 .App {
   position: relative;
+  background-color: #f0f0f0;
 }
 .App .home {
   min-height: 83vh;
@@ -56,27 +61,62 @@ nav .logo a {
   color: white;
   font-size: 3rem;
 }
-nav ul {
+nav .menu {
   display: flex;
   flex: 7 1 300px;
   justify-content: flex-end;
 }
-nav ul li {
-  list-style: none;
+nav .menu li {
   margin: 0 1rem;
 }
-nav ul li a {
+nav .menu li a {
   font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.6);
   transition: all 0.3s ease;
 }
-nav ul li a:hover {
+nav .menu li a:hover {
   color: rgb(255, 255, 255);
 }
-nav ul li a:hover i {
+nav .menu li a:hover i {
   transform: scale(1.4);
 }
-nav ul li a i {
+nav .menu li a i {
+  transition: all 0.3s ease;
+}
+nav .fold {
+  display: flex;
+}
+nav .fold p {
+  color: white;
+  font-size: 2rem;
+  margin: 1rem 2rem;
+  cursor: pointer;
+  display: none;
+}
+nav .fold .foldMenu {
+  position: absolute;
+  right: 0;
+  top: 80px;
+  display: flex;
+  flex-direction: column;
+  background-color: #262626;
+  border-radius: 10px;
+}
+nav .fold .foldMenu li {
+  margin: 0.75rem 1rem;
+}
+nav .fold .foldMenu li a {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+nav .fold .foldMenu li a:hover {
+  color: rgb(255, 255, 255);
+}
+nav .fold .foldMenu li a:hover i {
+  transform: scale(1.4);
+}
+nav .fold .foldMenu li a i {
   transition: all 0.3s ease;
 }
 
@@ -90,14 +130,32 @@ nav ul li a i {
   color: #f15764;
 }
 
+@media screen and (max-width: 1150px) {
+  nav .logo {
+    height: 40px;
+  }
+  nav .logo a {
+    font-size: 2.5rem;
+  }
+  nav .menu {
+    display: none;
+  }
+  nav .fold p {
+    display: block;
+  }
+  nav .fold .foldMenu {
+    top: 77px;
+  }
+}
 footer {
   height: 80px;
-  background-color: #f5f5f7;
+  background-color: #d0d0d0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 footer p {
+  text-align: center;
   font-size: 1.5rem;
 }
 
@@ -166,12 +224,12 @@ footer p {
   translate: -50%;
   z-index: 6;
   margin: 1rem 0;
-  width: 25%;
+  width: 480px;
   display: flex;
   justify-content: center;
 }
 .search .searchContainer {
-  background-color: aquamarine;
+  background-color: #adfedc;
   width: 100%;
   height: 40px;
   display: flex;
@@ -185,7 +243,7 @@ footer p {
   height: 30px;
   border: none;
   outline: none;
-  background-color: aquamarine;
+  background-color: #adfedc;
 }
 .search .searchContainer input::-moz-placeholder {
   text-align: center;
@@ -206,10 +264,21 @@ footer p {
   width: 30px;
   height: 30px;
   border: none;
-  background-color: aquamarine;
+  background-color: #adfedc;
   cursor: pointer;
 }
 
+@media screen and (max-width: 950px) {
+  .search {
+    top: auto;
+    bottom: 0;
+  }
+}
+@media screen and (max-width: 500px) {
+  .search {
+    width: 350px;
+  }
+}
 .login {
   width: 100%;
   display: flex;
@@ -218,7 +287,7 @@ footer p {
   min-height: 83vh;
 }
 .login .loginContainer {
-  background-color: rgba(128, 128, 128, 0.3);
+  background-color: #5b5b5b;
   width: 480px;
   height: 580px;
   border-radius: 15px;
@@ -237,12 +306,12 @@ footer p {
 .login .loginContainer .loginbox .logo {
   font-size: 3.5rem;
   margin-top: 1rem;
-  color: gray;
+  color: #c4e1ff;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 .login .loginContainer .loginbox .logo:hover {
-  color: aqua;
+  color: #66b3ff;
 }
 .login .loginContainer .loginbox h1 {
   font-size: 2.5rem;
@@ -278,28 +347,45 @@ footer p {
   padding: 0.25rem 2rem;
   border-radius: 12px;
   border: none;
-  background-color: rgba(95, 158, 160, 0.5);
+  background-color: #00caca;
   color: white;
   font-size: 2rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 .login .loginContainer .loginbox button:hover {
-  background-color: rgb(95, 158, 160);
+  background-color: #00ffff;
+  color: black;
 }
 .login .loginContainer p {
   margin-bottom: 1rem;
+  font-size: 1.3rem;
   color: white;
 }
 .login .loginContainer p a {
   text-decoration: none;
-  color: red;
+  color: white;
+  transition: all 0.3s ease;
+}
+.login .loginContainer p a:hover {
+  color: #ff0000;
 }
 .login .loginContainer .message {
   text-align: center;
-  font-size: 1.75rem;
+}
+.login .loginContainer .message p {
+  font-size: 2rem;
+  color: #ff0000;
 }
 
+@media screen and (max-width: 500px) {
+  .login {
+    background-color: #5b5b5b;
+  }
+  .login .loginContainer .loginbox .inputbox {
+    width: 100%;
+  }
+}
 .register {
   width: 100%;
   min-height: 83vh;
@@ -308,7 +394,7 @@ footer p {
   align-items: center;
 }
 .register .registerContainer {
-  background-color: rgba(128, 128, 128, 0.3);
+  background-color: #5b5b5b;
   width: 480px;
   height: 580px;
   border-radius: 15px;
@@ -331,12 +417,11 @@ footer p {
 }
 .register .registerContainer .registerbox h1 a {
   font-size: 2.8rem;
-  color: gray;
+  color: #c4e1ff;
   text-decoration: none;
-  font-family: "Abril Fatface", cursive;
 }
 .register .registerContainer .registerbox h1 a:hover {
-  color: aqua;
+  color: #66b3ff;
 }
 .register .registerContainer .registerbox .inputbox {
   width: 80%;
@@ -371,36 +456,53 @@ footer p {
   font-size: 1.2rem;
 }
 .register .registerContainer .registerbox p {
-  color: gray;
-  font-size: 0.8rem;
+  color: #ff8040;
+  font-size: 1rem;
 }
 .register .registerContainer .registerbox button {
   margin: 1rem 0;
   padding: 0.25rem 2rem;
   border-radius: 12px;
   border: none;
-  background-color: rgba(95, 158, 160, 0.5);
+  background-color: #00caca;
   color: white;
   font-size: 2rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 .register .registerContainer .registerbox button:hover {
-  background-color: rgb(95, 158, 160);
+  background-color: #00ffff;
+  color: black;
 }
 .register .registerContainer p {
   margin-bottom: 0.5rem;
+  font-size: 1.3rem;
   color: white;
 }
 .register .registerContainer p a {
   text-decoration: none;
-  color: red;
+  color: white;
+  transition: all 0.3s ease;
+}
+.register .registerContainer p a:hover {
+  color: #ff0000;
 }
 .register .registerContainer .message {
   text-align: center;
-  font-size: 1.75rem;
+}
+.register .registerContainer .message p {
+  font-size: 2rem;
+  color: #ff0000;
 }
 
+@media screen and (max-width: 500px) {
+  .register {
+    background-color: #5b5b5b;
+  }
+  .register .registerContainer .registerbox .inputbox {
+    width: 100%;
+  }
+}
 .collectionPictures {
   min-height: 83vh;
   display: flex;

@@ -8,6 +8,16 @@ const CollectionPicture = ({ data }) => {
     CollectionService.delete(data.id)
       .then(() => {
         deleteRef.current.remove();
+        Swal.fire({
+          toast: true,
+          icon: "success",
+          position: "bottom-end",
+          title: "圖片取消收藏成功!!",
+          color: "white",
+          showConfirmButton: false,
+          timer: 1000,
+          background: "#FF7878",
+        });
       })
       .catch((error) => {
         Swal.fire({

@@ -17,6 +17,16 @@ const Picture = ({ data, currentUser, setCurrentUser }) => {
         data.src.original
       )
         .then(() => {
+          Swal.fire({
+            toast: true,
+            icon: "success",
+            position: "bottom-end",
+            title: "圖片收藏成功!!",
+            color: "white",
+            showConfirmButton: false,
+            timer: 1000,
+            background: "#A3A3FF",
+          });
           setColor({ color: "red" });
         })
         .catch((error) => {
@@ -32,6 +42,16 @@ const Picture = ({ data, currentUser, setCurrentUser }) => {
       //刪除
       CollectionService.delete(data.id)
         .then(() => {
+          Swal.fire({
+            toast: true,
+            icon: "success",
+            position: "bottom-end",
+            title: "圖片取消收藏成功!!",
+            color: "white",
+            showConfirmButton: false,
+            timer: 1000,
+            background: "#FF7878",
+          });
           setColor({ color: "" });
         })
         .catch((error) => {
@@ -41,9 +61,15 @@ const Picture = ({ data, currentUser, setCurrentUser }) => {
   }
 
   //已收藏的顯示紅色愛心
-  function check(id) {
+  function check() {
+    let _id;
     if (currentUser) {
-      CollectionService.get(id)
+      _id = currentUser.user._id;
+    } else {
+      _id = "";
+    }
+    if (currentUser) {
+      CollectionService.get(_id)
         .then((response) => {
           response.data.map((d) => {
             if (d.id === data.id) {
@@ -58,13 +84,7 @@ const Picture = ({ data, currentUser, setCurrentUser }) => {
   }
 
   useEffect(() => {
-    let _id;
-    if (currentUser) {
-      _id = currentUser.user._id;
-    } else {
-      _id = "";
-    }
-    check(_id);
+    check();
   }, []);
 
   return (

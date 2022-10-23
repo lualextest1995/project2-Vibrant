@@ -7,8 +7,13 @@
 a {
   text-decoration: none;
 }
+li {
+  list-style: none;
+}
+
 .App {
   position: relative;
+  background-color: #f0f0f0;
   .home {
     min-height: 83vh;
   }

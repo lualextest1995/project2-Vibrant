@@ -18,12 +18,11 @@ nav {
       font-size: 3rem;
     }
   }
-  ul {
+  .menu {
     display: flex;
     flex: 7 1 300px;
     justify-content: flex-end;
     li {
-      list-style: none;
       margin: 0 1rem;
       a {
         font-size: 1.5rem;
@@ -41,6 +40,42 @@ nav {
       }
     }
   }
+  .fold {
+    display: flex;
+    p {
+      color: white;
+      font-size: 2rem;
+      margin: 1rem 2rem;
+      cursor: pointer;
+      display: none;
+    }
+    .foldMenu {
+      position: absolute;
+      right: 0;
+      top: 80px;
+      display: flex;
+      flex-direction: column;
+      background-color: #262626;
+      border-radius: 10px;
+      li {
+        margin: 0.75rem 1rem;
+        a {
+          font-size: 1.5rem;
+          color: rgba(255, 255, 255, 0.6);
+          transition: all 0.3s ease;
+          &:hover {
+            color: rgba(255, 255, 255, 1);
+            i {
+              transform: scale(1.4);
+            }
+          }
+          i {
+            transition: all 0.3s ease;
+          }
+        }
+      }
+    }
+  }
 }
 .active {
   color: rgb(255, 255, 255);
@@ -49,5 +84,27 @@ nav {
   i {
     transform: scale(1.4);
     color: #f15764;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  nav {
+    .logo {
+      height: 40px;
+      a {
+        font-size: 2.5rem;
+      }
+    }
+    .menu {
+      display: none;
+    }
+    .fold {
+      p {
+        display: block;
+      }
+      .foldMenu {
+        top: 77px;
+      }
+    }
   }
 }
