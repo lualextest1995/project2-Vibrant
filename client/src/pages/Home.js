@@ -7,7 +7,7 @@ const Home = ({ currentUser, setCurrentUser }) => {
   const [page, setPage] = useState(1);
   const [input, setInput] = useState("");
   const [currentSearch, setCurrentSearch] = useState("");
-  const auth = "563492ad6f91700001000001b33b35fad8e34c0490d68acbea118c54";
+  const auth = process.env.REACT_APP_PIXELS_API_KEY;
   const initialURL = "https://api.pexels.com/v1/curated?page=1&per_page=30";
   const loadingURL = `https://api.pexels.com/v1/curated?page=${page}&per_page=30`;
   const searchURL = `https://api.pexels.com/v1/search?query=${currentSearch}&per_page=30&page=1`;
