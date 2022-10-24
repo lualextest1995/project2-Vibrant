@@ -317,6 +317,7 @@ footer p {
   }
   .search .searchContainer input {
     padding-left: 10px;
+    width: 330px;
   }
 }
 .login {
