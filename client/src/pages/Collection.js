@@ -38,8 +38,13 @@ const Collection = ({ currentUser, setCurrentUser }) => {
       <div className="collectionPictures">
         {collectionData &&
           collectionData.map((pic) => {
-            return <CollectionPicture key={pic.id} data={pic} />;
+            return <CollectionPicture id="top" key={pic.id} data={pic} />;
           })}
+      </div>
+      <div className="topButton">
+        <a href="#top" title="點擊回到最上方">
+          <i className="fa-solid fa-arrow-up"></i>
+        </a>
       </div>
     </div>
   );

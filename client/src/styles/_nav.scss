@@ -16,6 +16,14 @@ nav {
       margin: 0 1rem;
       color: white;
       font-size: 3rem;
+      transition: all 0.3s ease;
+      font-family: "Fasthand", cursive;
+      &:hover {
+        transform: scale(1.1);
+      }
+      i {
+        color: #f15764;
+      }
     }
   }
   .menu {

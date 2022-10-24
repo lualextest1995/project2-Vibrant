@@ -26,24 +26,30 @@ const Login = ({ currentUser, setCurrentUser }) => {
     if (currentUser) {
       navigate("/collection");
     }
-  });
+  }, []);
 
   return (
     <div className="login">
       <div className="loginContainer">
         <div className="loginbox">
           <Link className="logo" to="/">
-            Picture
+            Vibrant
           </Link>
           <h1>登入帳戶</h1>
           <div>
             <label htmlFor="email">電子郵件：</label>
             <input
+              autoFocus
               type="email"
               name="email"
               id="email"
               ref={emailRef}
               placeholder="您的電子郵件"
+              onKeyDown={(e) => {
+                if (e.code === "Enter" || e.code === "NumpadEnter") {
+                  submitLogin();
+                }
+              }}
             />
           </div>
           <div>
@@ -54,6 +60,11 @@ const Login = ({ currentUser, setCurrentUser }) => {
               id="password"
               ref={passwordRef}
               placeholder="密碼"
+              onKeyDown={(e) => {
+                if (e.code === "Enter" || e.code === "NumpadEnter") {
+                  submitLogin();
+                }
+              }}
             />
           </div>
           <button onClick={submitLogin}>登入</button>

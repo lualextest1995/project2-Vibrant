@@ -61,13 +61,14 @@ const Home = ({ currentUser, setCurrentUser }) => {
   return (
     <div className="home">
       <Search
+        id="top"
         setInput={setInput}
         search={() => {
           //input的資料由setCurrentSearch保存
           setCurrentSearch(input);
         }}
         searchKeyboard={(e) => {
-          if (e.code == "Enter") {
+          if (e.code === "Enter" || e.code === "NumpadEnter") {
             setCurrentSearch(input);
           }
         }}
@@ -87,6 +88,11 @@ const Home = ({ currentUser, setCurrentUser }) => {
       </div>
       <div className="loading">
         <button onClick={loadingHandler}>載入更多</button>
+      </div>
+      <div className="topButton">
+        <a href="#top" title="點擊回到最上方">
+          <i className="fa-solid fa-arrow-up"></i>
+        </a>
       </div>
     </div>
   );

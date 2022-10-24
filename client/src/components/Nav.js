@@ -11,7 +11,7 @@ const Nav = ({ currentUser, setCurrentUser }) => {
   }
 
   function openMenu() {
-    if (display.display == "none") {
+    if (display.display === "none") {
       setDisplay({ display: "block" });
     } else {
       setDisplay({ display: "none" });
@@ -26,7 +26,7 @@ const Nav = ({ currentUser, setCurrentUser }) => {
     <nav>
       <div className="logo">
         <Link to="/" onClick={closeMenu}>
-          <i className="fa-solid fa-icons"></i> picture
+          <i className="fa-solid fa-icons"></i> Vibrant
         </Link>
       </div>
       <ul className="menu">

@@ -33,17 +33,23 @@ const Register = ({ currentUser, setCurrentUser }) => {
       <div className="registerContainer">
         <div className="registerbox">
           <h1>
-            建立您的<Link to="/">Picture</Link>帳戶
+            建立您的<Link to="/">Vibrant </Link>帳戶
           </h1>
           <div className="inputbox">
             <label htmlFor="username">姓名：</label>
             <div>
               <input
+                autoFocus
                 type="text"
                 name="username"
                 id="username"
                 placeholder="姓名"
                 ref={usenameRef}
+                onKeyDown={(e) => {
+                  if (e.code === "Enter" || e.code === "NumpadEnter") {
+                    submitRegister();
+                  }
+                }}
               />
             </div>
           </div>
@@ -56,6 +62,11 @@ const Register = ({ currentUser, setCurrentUser }) => {
                 id="email"
                 placeholder="您的電子郵件"
                 ref={emailRef}
+                onKeyDown={(e) => {
+                  if (e.code === "Enter" || e.code === "NumpadEnter") {
+                    submitRegister();
+                  }
+                }}
               />
             </div>
           </div>
@@ -69,6 +80,11 @@ const Register = ({ currentUser, setCurrentUser }) => {
                 placeholder="密碼"
                 id="password"
                 ref={passwordRef}
+                onKeyDown={(e) => {
+                  if (e.code === "Enter" || e.code === "NumpadEnter") {
+                    submitRegister();
+                  }
+                }}
               />
             </div>
           </div>

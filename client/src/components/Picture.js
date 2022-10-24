@@ -55,7 +55,18 @@ const Picture = ({ data, currentUser, setCurrentUser }) => {
           setColor({ color: "" });
         })
         .catch((error) => {
-          window.alert(error.response.data);
+          console.log(error.response.data.message);
+          Swal.fire({
+            toast: true,
+            icon: "error",
+            iconColor: "red",
+            position: "bottom-end",
+            title: "本圖片收藏功能異常!!",
+            color: "white",
+            showConfirmButton: false,
+            timer: 1000,
+            background: "#FF7878",
+          });
         });
     }
   }
