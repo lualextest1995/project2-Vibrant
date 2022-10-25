@@ -13,6 +13,7 @@
 - React Hooks
 - Responsive web design (RWD)
 - ES6 and ES7 syntax(Operator,async/await)
+- sass(scss)
 
 # Technologies
 
@@ -21,6 +22,7 @@
 - [Pexels API](https://www.pexels.com/api/)
 - [React](https://zh-hant.reactjs.org/)
 - [axios](https://github.com/axios/axios)
+- [sass](https://sass-lang.com/)
 
 更多詳細資訊，請點擊 client 資料夾的 [package.json](https://github.com/lualextest1995/project2/blob/main/client/package.json)
 
