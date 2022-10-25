@@ -16,7 +16,7 @@
 
 # Technologies
 
-## FrontEnd
+## Frontend
 
 - [Pexels API](https://www.pexels.com/api/)
 - [React](https://zh-hant.reactjs.org/)
@@ -24,9 +24,7 @@
 
 更多詳細資訊，請點擊 client 資料夾的 [package.json](https://github.com/lualextest1995/project2/blob/main/client/package.json)
 
----
-
-## BackEnd
+## Backend
 
 - [Node.js](https://nodejs.org/zh-tw/)
 - [express](https://expressjs.com/zh-tw/)
@@ -35,6 +33,12 @@
 
 更多詳細資訊，請點擊 server 資料夾的 [package.json](https://github.com/lualextest1995/project2/blob/main/server/package.json)
 
----
-
 # Getting Started
+
+1.Clone this repositories
+
+```
+$ git clone https://github.com/lualextest1995/project2.git
+```
+
+2.
