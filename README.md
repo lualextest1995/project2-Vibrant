@@ -1,4 +1,4 @@
-# Project: 圖片收藏網站
+# Project: 圖片收藏網站 Vibrant
 
 這是一個圖片網站專案可以直接輸入關鍵字搜尋並下載原圖，或是註冊帳號收藏圖片資料。
 <br />
@@ -35,10 +35,53 @@
 
 # Getting Started
 
-1.Clone this repositories
+1.Clone this repositories.
 
 ```
 $ git clone https://github.com/lualextest1995/project2.git
 ```
 
-2.
+2.Install NPM.
+
+```
+$ cd client
+$ npm install
+$ cd ..
+$ cd server
+$ npm install
+```
+
+3.Add .env file
+
+```
+* client file
+
+$ cd client
+$ create .env file
+# open .env file and content writing
+
+REACT_APP_PIXELS_API_KEY=<Your pixels api key>
+
+* server file
+
+$ cd server
+$ create .env file
+# open .env file and content writing
+
+DB_CONNECT=<Your mongoDB Atlas key>
+PASSPORT_SECRET=<Any string>
+```
+
+4.Run the client and server.
+
+```
+* client
+npm start
+
+* server
+npm start
+```
+
+---
+
+## Copyright © 2022 Alex Lu. All rights reserved.
