@@ -29,6 +29,7 @@
 - [Node.js](https://nodejs.org/zh-tw/)
 - [express](https://expressjs.com/zh-tw/)
 - [cors](https://www.npmjs.com/package/cors)
+- [passport]()
 - [MongoDB Atlas](https://www.mongodb.com/atlas/database)
 
 更多詳細資訊，請點擊 server 資料夾的 [package.json](https://github.com/lualextest1995/project2/blob/main/server/package.json)
