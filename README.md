@@ -85,6 +85,12 @@ npm start
 npm start
 ```
 
+5.Open Web Browser.
+
+```
+http://localhost:3000/
+```
+
 ---
 
 ## Copyright © 2022 Alex Lu. All rights reserved.
