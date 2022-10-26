@@ -6,6 +6,8 @@
 
 # Demo
 
+![project2](./Demo/project2.gif)
+
 # Features
 
 - MERN(MongoDB Atlas + Express.js + React.js + Node.js)
