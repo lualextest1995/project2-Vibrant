@@ -21,7 +21,7 @@ li {
   background-color: #f0f0f0;
 }
 .App .home {
-  min-height: 83vh;
+  min-height: 84vh;
 }
 
 .loading {
@@ -325,7 +325,7 @@ footer p {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 83vh;
+  min-height: 84vh;
 }
 .login .loginContainer {
   background-color: #5b5b5b;
@@ -431,7 +431,7 @@ footer p {
 }
 .register {
   width: 100%;
-  min-height: 83vh;
+  min-height: 84vh;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -39,6 +39,7 @@ const Register = ({ currentUser, setCurrentUser }) => {
             <label htmlFor="username">姓名：</label>
             <div>
               <input
+                autoComplete="off"
                 autoFocus
                 type="text"
                 name="username"
@@ -57,6 +58,7 @@ const Register = ({ currentUser, setCurrentUser }) => {
             <label htmlFor="email">電子郵件：</label>
             <div>
               <input
+                autoComplete="new-email"
                 type="email"
                 name="email"
                 id="email"

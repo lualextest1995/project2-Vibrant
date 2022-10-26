@@ -39,6 +39,7 @@ const Login = ({ currentUser, setCurrentUser }) => {
           <div>
             <label htmlFor="email">電子郵件：</label>
             <input
+              autoComplete="new-email"
               autoFocus
               type="email"
               name="email"
