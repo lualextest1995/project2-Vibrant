@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import AuthService from "../services/auth.service";
 
 const Register = ({ currentUser, setCurrentUser }) => {
-  const usenameRef = useRef("");
+  const usernameRef = useRef("");
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const [message, setMessage] = useState("");
@@ -11,7 +11,7 @@ const Register = ({ currentUser, setCurrentUser }) => {
 
   function submitRegister() {
     AuthService.register(
-      usenameRef.current.value,
+      usernameRef.current.value,
       emailRef.current.value,
       passwordRef.current.value
     )
@@ -45,7 +45,7 @@ const Register = ({ currentUser, setCurrentUser }) => {
                 name="username"
                 id="username"
                 placeholder="姓名"
-                ref={usenameRef}
+                ref={usernameRef}
                 onKeyDown={(e) => {
                   if (e.code === "Enter" || e.code === "NumpadEnter") {
                     submitRegister();
